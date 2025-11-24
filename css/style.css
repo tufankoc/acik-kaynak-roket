@@ -510,24 +510,65 @@ a {
     color: var(--primary-accent);
 }
 
-/* Twitter Share Button */
-.share-btn {
-    padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+/* Footer Actions Layout */
+.footer-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.social-link {
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    color: white !important;
-    font-weight: 600;
+    color: var(--text-main);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
-.share-btn:hover {
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-accent);
+    color: var(--primary-accent);
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0, 242, 255, 0.4);
+}
+
+/* Large Twitter Share Button */
+.share-btn-large {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+    border-radius: 12px;
+    color: white !important;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 25px rgba(0, 242, 255, 0.3);
+}
+
+.share-btn-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 242, 255, 0.5);
+}
+
+.share-btn-large i {
+    font-size: 1.4rem;
 }
 
 /* Responsive */
