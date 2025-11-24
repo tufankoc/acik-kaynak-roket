@@ -176,8 +176,8 @@ a {
 /* Rocket Image */
 .hero-visual {
     position: relative;
-    width: 280px;
-    height: 280px;
+    width: 240px;
+    height: 240px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,7 +186,7 @@ a {
 .hero-rocket-img {
     width: 100%;
     height: auto;
-    max-width: 280px;
+    max-width: 240px;
     object-fit: contain;
     filter: drop-shadow(0 0 40px rgba(0, 242, 255, 0.3));
     animation: float 4s ease-in-out infinite;
