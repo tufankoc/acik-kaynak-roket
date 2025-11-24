@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açık Kaynak Roketçilik | Uzayı Keşfet</title>
+    <meta name="description"
+        content="Roket bilimini eğlenceli ve anlaşılır bir şekilde öğrenin. Kaynaklar, simülasyonlar ve daha fazlası.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <canvas id="starfield"></canvas>
+
+    <nav class="navbar glass">
+        <div class="logo">
+            <i class="fa-solid fa-shuttle-space"></i> Roket Bilimi
+        </div>
+        <div class="nav-links">
+            <a href="#kitaplar">Kitaplar</a>
+            <a href="#masterclass">Master Class</a>
+            <a href="#laboratuvar">Laboratuvar</a>
+            <a href="#tasarim">Tasarım</a>
+            <a href="#sozluk">Sözlük</a>
+            <a href="#web">Web</a>
+            <a href="#youtube">YouTube</a>
+            <button id="music-toggle" class="nav-icon-btn" title="Müziği Aç/Kapat">
+                <i class="fa-solid fa-volume-xmark"></i>
+            </button>
+            <a href="https://github.com/tufankoc/acik-kaynak-roket" target="_blank" class="github-btn"><i
+                    class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+    </nav>
+
+    <!-- Background Music Player -->
+    <div id="youtube-player" style="display: none;"></div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="gradient-text">Sınırları Aş, <br>Yıldızlara Dokun</h1>
+            <p class="hero-subtitle">Roket bilimi sadece mühendislerin değil, gökyüzüne bakan herkesin tutkusudur.</p>
+            <p class="hero-description">
+                Newton'un yasalarından sıvı yakıtlı motorların kükremesine; yörünge mekaniğinden derin uzay
+                navigasyonuna.
+                Karmaşık formülleri bir kenara bırakın, roket biliminin büyüleyici dünyasını en anlaşılır ve eğlenceli
+                haliyle keşfedin.
+            </p>
+            <a href="#basla" class="cta-button">Yolculuğa Başla <i class="fa-solid fa-shuttle-space"></i></a>
+        </div>
+        <div class="hero-visual">
+            <!-- CSS Rocket Animation -->
+            <div class="rocket-container">
+                <div class="rocket">
+                    <div class="rocket-body">
+                        <div class="window"></div>
+                    </div>
+                    <div class="fin fin-left"></div>
+                    <div class="fin fin-right"></div>
+                    <div class="exhaust-flame"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="basla">
+
+        <!-- Books Section -->
+        <section id="kitaplar" class="section">
+            <h2 class="section-title">Kutsal Kitaplar <span class="badge">Akademik</span></h2>
+            <p class="section-desc">SpaceX, NASA ve Rocket Lab mühendislerinin masasında bulunan temel kaynaklar.</p>
+
+            <div class="grid-container">
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-book-journal-whills"></i></div>
+                    <h3>Rocket Propulsion Elements</h3>
+                    <div class="author">George P. Sutton</div>
+                    <p>Bu işin "İncil"i. Roket itki sistemleri hakkında dünyadaki en kapsamlı kaynak. Sıvı ve katı
+                        yakıtlı motorların matematiği.</p>
+                    <a href="https://www.google.com/search?q=Rocket+Propulsion+Elements+George+P.+Sutton"
+                        target="_blank" class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                </div>
+
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+                    <h3>Ignition!</h3>
+                    <div class="author">John D. Clark</div>
+                    <p>Sıvı roket yakıtlarının kimyasını ve patlama hikayelerini anlatan efsanevi, eğlenceli ama kimyası
+                        ağır bir kitap.</p>
+                    <a href="https://www.google.com/search?q=Ignition!+John+D.+Clark" target="_blank"
+                        class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                </div>
+
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h3>Modern Engineering for Design of Liquid-Propellant Rocket Engines</h3>
+                    <div class="author">Huzel & Huang</div>
+                    <p>NASA yayını. Sıvı yakıtlı motor tasarımı üzerine derinlemesine teknik detaylar.</p>
+                    <a href="https://www.google.com/search?q=Modern+Engineering+for+Design+of+Liquid-Propellant+Rocket+Engines+Huzel+Huang"
+                        target="_blank" class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                </div>
+
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-satellite"></i></div>
+                    <h3>Space Mission Analysis and Design (SMAD)</h3>
+                    <p>Sadece roket değil, yörünge, uydu ve fırlatma dahil tüm uzay görevinin tasarımı.</p>
+                    <a href="https://www.google.com/search?q=Space+Mission+Analysis+and+Design+SMAD" target="_blank"
+                        class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                </div>
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-list-ul"></i></div>
+                    <h3>Awesome Space Books</h3>
+                    <div class="author">Hunter-Github</div>
+                    <p>Uzay ve roketçilik üzerine devasa bir kitap listesi. Kategorize edilmiş yüzlerce kaynak.</p>
+                    <a href="https://github.com/Hunter-Github/awesome-space-books" target="_blank"
+                        class="card-link">Listeyi Gör <i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Master Class Section -->
+        <section id="masterclass" class="section">
+            <h2 class="section-title">Master Class <span class="badge"
+                    style="color: var(--danger-accent); border-color: var(--danger-accent);">Uzmanlık</span></h2>
+            <p class="section-desc">"Big Four" seviyesini aşanlar için. Yörünge mekaniği, güdüm sistemleri ve
+                derinlemesine mühendislik.</p>
+
+            <!-- Orbital Mechanics -->
+            <h3 class="subsection-title">Yörünge Mekaniği'nin Kutsal Üçlüsü</h3>
+            <div class="grid-container">
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-atom"></i></div>
+                    <h3>Fundamentals of Astrodynamics</h3>
+                    <div class="author">Bate, Mueller, White (BMW)</div>
+                    <p>Lakabı "BMW". Yörünge mekaniği öğrenen herkesin ilk kitabı. Kepler yasalarından balistik füze
+                        yörüngelerine kadar en sade anlatım.</p>
+                    <a href="https://www.google.com/search?q=Fundamentals+of+Astrodynamics+Bate+Mueller+White"
+                        target="_blank" class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                </div>
+
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Orbital Mechanics for Engineering Students</h3>
+                    <div class="author">Howard Curtis</div>
+                    <p>BMW teoriktir, Curtis pratiktir. Vektör tabanlı hesaplamalar (State Vectors) ve MATLAB örnekleri
+                        içerir.</p>
+                    <a href="https://www.google.com/search?q=Orbital+Mechanics+for+Engineering+Students+Howard+Curtis"
+                        target="_blank" class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                </div>
+
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-infinity"></i></div>
+                    <h3>Mathematics and Methods of Astrodynamics</h3>
+                    <div class="author">Richard Battin</div>
+                    <p>Apollo görevlerinin navigasyon matematiğini yazan efsaneden. Sonsuz-küçükler hesabı ve
+                        navigasyonun temeli.</p>
+                    <a href="https://www.google.com/search?q=Mathematics+and+Methods+of+Astrodynamics+Richard+Battin"
+                        target="_blank" class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                </div>
+            </div>
+
+            <!-- GNC & Aero -->
+            <h3 class="subsection-title" style="margin-top: 4rem;">Güdüm (GNC) & Aerodinamik</h3>
+            <div class="grid-container">
+                <div class="card glass-card highlight-border">
+                    <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                    <h3>Tactical and Strategic Missile Guidance</h3>
+                    <div class="author">Paul Zarchan</div>
+                    <p>Bu alanın 1 numarası. Roketlerin hedefe nasıl kilitlendiğini, PID kontrolcülerini ve Kalman
+                        filtrelerini anlatır.</p>
+                    <a href="https://www.google.com/search?q=Tactical+and+Strategic+Missile+Guidance+Paul+Zarchan"
+                        target="_blank" class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                </div>
+
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-wind"></i></div>
+                    <h3>Hypersonic and High-Temperature Gas Dynamics</h3>
+                    <div class="author">John D. Anderson</div>
+                    <p>Atmosfere giriş (Re-entry) ve şok dalgaları. Starship neden yanmıyor sorusunun cevabı.</p>
+                    <a href="https://www.google.com/search?q=Hypersonic+and+High-Temperature+Gas+Dynamics+John+D.+Anderson"
+                        target="_blank" class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                </div>
+            </div>
+
+            <!-- Engineering & History -->
+            <h3 class="subsection-title" style="margin-top: 4rem;">Derin Mühendislik & Tarih</h3>
+            <div class="grid-container">
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-water"></i></div>
+                    <h3>Hydrodynamics of Pumps</h3>
+                    <div class="author">Christopher Brennen</div>
+                    <p>Turbopompalar, kavitasyon ve Pogo osilasyonu üzerine en iyi kaynak. Caltech tarafından ücretsiz
+                        sunulur.</p>
+                    <div style="display: flex; gap: 10px; margin-top: auto;">
+                        <a href="https://authors.library.caltech.edu/25017/" target="_blank" class="card-link">Caltech
+                            <i class="fa-solid fa-building-columns"></i></a>
+                        <a href="https://www.google.com/search?q=Hydrodynamics+of+Pumps+Christopher+Brennen"
+                            target="_blank" class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                    </div>
+                </div>
+
+                <div class="card glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Rockets and People</h3>
+                    <div class="author">Boris Chertok</div>
+                    <p>Sovyet uzay programının mühendislik günlükleri. N1 roketinin neden patladığını anlatan 4 ciltlik
+                        dev eser.</p>
+                    <div style="display: flex; gap: 10px; margin-top: auto;">
+                        <a href="https://www.nasa.gov/connect/ebooks/rockets_people_vol1_detail.html" target="_blank"
+                            class="card-link">NASA E-Book <i class="fa-solid fa-download"></i></a>
+                        <a href="https://www.google.com/search?q=Rockets+and+People+Boris+Chertok" target="_blank"
+                            class="card-link">Google'da Ara <i class="fa-brands fa-google"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NASA SP Series -->
+            <div class="nasa-sp-container glass-card" style="margin-top: 3rem;">
+                <div class="sp-header">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <h3>NASA SP Serisi (Gizli Hazine)</h3>
+                </div>
+                <p style="margin-bottom: 1rem; color: var(--text-muted);">Mühendisler için yazılmış teknik monograflar.
+                    Tüm arşive erişim için:</p>
+                <a href="https://ntrs.nasa.gov/search?q=NASA%20SP" target="_blank" class="card-link"
+                    style="font-size: 1.1rem;">
+                    NTRS Arşivini Tara <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <ul class="sp-list" style="margin-top: 1.5rem;">
+                    <li>
+                        <span class="sp-id">SP-8000 Serisi</span>
+                        <span class="sp-desc">Space Vehicle Design Criteria. (Örn: SP-8007 - İnce duvarlı silindirlerin
+                            bükülmesi)</span>
+                    </li>
+                    <li>
+                        <span class="sp-id">SP-125</span>
+                        <span class="sp-desc">Sıvı yakıtlı roket tasarımının atası. Huzel & Huang'ın temel aldığı
+                            kaynak.</span>
+                    </li>
+                    <li>
+                        <span class="sp-id">Arvind Gupta</span>
+                        <span class="sp-desc"><a href="https://www.arvindguptatoys.com/arvindgupta/rockets-nasa.pdf"
+                                target="_blank" style="color: var(--primary-accent);">Rockets NASA PDF</a> - Basit
+                            anlatımlı klasik bir kaynak.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid-container">
+                <!-- F Prime -->
+                <div class="card glass-card highlight-border">
+                    <div class="card-header-row">
+                        <div class="card-icon"><i class="fa-brands fa-github"></i></div>
+                        <span class="difficulty hard">Zor</span>
+                    </div>
+                    <h3>F´ (F Prime)</h3>
+                    <div class="author">NASA JPL</div>
+                    <p>Mars helikopteri Ingenuity'yi uçuran uçuş yazılımı framework'ü. Gömülü sistemler için modüler
+                        yapı.</p>
+                    <div class="tech-stack">
+                        <span>C++</span>
+                        <span>Python</span>
+                        <span>Flight Software</span>
+                    </div>
+                    <a href="https://github.com/nasa/fprime" target="_blank" class="card-link">İncele <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Open MCT -->
+                <div class="card glass-card">
+                    <div class="card-header-row">
+                        <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <span class="difficulty medium">Orta</span>
+                    </div>
+                    <h3>Open MCT</h3>
+                    <div class="author">NASA Ames</div>
+                    <p>Uzay araçlarından gelen veriyi görselleştirmek için kullanılan web tabanlı görev kontrol
+                        paneli.
+                    </p>
+                    <div class="tech-stack">
+                        <span>JavaScript</span>
+                        <span>Vue</span>
+                        <span>Mission Control</span>
+                    </div>
+                    <a href="https://github.com/nasa/openmct" target="_blank" class="card-link">İncele <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- cFS -->
+                <div class="card glass-card">
+                    <div class="card-header-row">
+                        <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+                        <span class="difficulty hard">Zor</span>
+                    </div>
+                    <h3>cFS (Core Flight System)</h3>
+                    <div class="author">NASA</div>
+                    <p>NASA'nın birçok uydusunda kullandığı, platformdan bağımsız uçuş yazılımı mimarisi.</p>
+                    <div class="tech-stack">
+                        <span>C</span>
+                        <span>Embedded</span>
+                        <span>Flight Software</span>
+                    </div>
+                    <a href="https://github.com/nasa/cFS" target="_blank" class="card-link">İncele <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- OpenRocket -->
+                <div class="card glass-card">
+                    <div class="card-header-row">
+                        <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                        <span class="difficulty easy">Kolay</span>
+                    </div>
+                    <h3>OpenRocket</h3>
+                    <div class="author">Topluluk</div>
+                    <p>Amatör roketçilerin 1 numaralı simülasyon aracı. Uçuş kararlılığı ve aerodinamik analiz.</p>
+                    <div class="tech-stack">
+                        <span>Java</span>
+                        <span>Simulation</span>
+                    </div>
+                    <a href="https://github.com/openrocket/openrocket" target="_blank" class="card-link">İncele <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Orekit -->
+                <div class="card glass-card">
+                    <div class="card-header-row">
+                        <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+                        <span class="difficulty hard">Zor</span>
+                    </div>
+                    <h3>Orekit</h3>
+                    <div class="author">Topluluk</div>
+                    <p>Yörünge mekaniği için düşük seviyeli ve güçlü kütüphane. Uyduların konumunu yıllar sonrası
+                        için
+                        hesaplar.</p>
+                    <div class="tech-stack">
+                        <span>Java</span>
+                        <span>Python</span>
+                        <span>Orbital Mechanics</span>
+                    </div>
+                    <a href="https://gitlab.orekit.org/orekit/orekit" target="_blank" class="card-link">İncele <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- CesiumJS -->
+                <div class="card glass-card">
+                    <div class="card-header-row">
+                        <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <span class="difficulty medium">Orta</span>
+                    </div>
+                    <h3>CesiumJS</h3>
+                    <div class="author">Cesium GS</div>
+                    <p>Web tarayıcısında 3D dünya ve uzay haritası oluşturmak için en iyi kütüphane.</p>
+                    <div class="tech-stack">
+                        <span>JavaScript</span>
+                        <span>WebGL</span>
+                        <span>Visualization</span>
+                    </div>
+                    <a href="https://github.com/CesiumGS/cesium" target="_blank" class="card-link">İncele <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <!-- Rocket Science Core -->
+            <div class="card glass-card">
+                <div class="card-header-row">
+                    <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+                    <span class="difficulty medium">Orta</span>
+                </div>
+                <h3>Rocket Science Core</h3>
+                <div class="author">Topluluk</div>
+                <p>Roket bilimi hesaplamaları için açık kaynaklı temel kütüphane.</p>
+                <div class="tech-stack">
+                    <span>C#</span>
+                    <span>Physics</span>
+                </div>
+                <a href="https://github.com/rocket-science-core/rocket-science" target="_blank" class="card-link">İncele
+                    <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Rocket Science Official -->
+            <div class="card glass-card">
+                <div class="card-header-row">
+                    <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                    <span class="difficulty easy">Kolay</span>
+                </div>
+                <h3>Rocket Science Official</h3>
+                <div class="author">Topluluk</div>
+                <p>Eğitim materyalleri ve basit simülasyon araçları koleksiyonu.</p>
+                <div class="tech-stack">
+                    <span>Python</span>
+                    <span>Education</span>
+                </div>
+                <a href="https://github.com/RocketScienceOfficial" target="_blank" class="card-link">İncele <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            </div>
+        </section>
+
+        <!-- Rocket Lab Section -->
+        <section id="laboratuvar" class="section">
+            <h2 class="section-title">Roket Laboratuvarı <span class="badge"
+                    style="color: var(--danger-accent); border-color: var(--danger-accent);">İnteraktif</span></h2>
+            <p class="section-desc">Kendi roketini tasarla, parametreleri ayarla ve fırlat. Fizik kurallarını test
+                et.
+            </p>
+
+            <div class="lab-container glass-card">
+                <div class="lab-controls cockpit-panel">
+                    <div class="cockpit-header">
+                        <h3><i class="fa-solid fa-satellite-dish"></i> GÖREV KONTROL</h3>
+                        <div class="mission-timer" id="mission-timer">T- 00:00:00</div>
+                    </div>
+
+                    <div class="telemetry-grid">
+                        <div class="lcd-display">
+                            <label>İRTİFA (m)</label>
+                            <span id="altitude" class="lcd-value">00000</span>
+                        </div>
+                        <div class="lcd-display">
+                            <label>HIZ (m/s)</label>
+                            <span id="velocity" class="lcd-value">0000</span>
+                        </div>
+                        <div class="lcd-display">
+                            <label>İVME (G)</label>
+                            <span id="acceleration" class="lcd-value">0.0</span>
+                        </div>
+                        <div class="lcd-display">
+                            <label>MAX Q (Pa)</label>
+                            <span id="max-q" class="lcd-value">0</span>
+                        </div>
+                        <div class="lcd-display wide">
+                            <label>YAKIT DURUMU</label>
+                            <div class="fuel-bar-container">
+                                <div id="fuel-bar" class="fuel-bar" style="width: 100%;"></div>
+                            </div>
+                            <span id="fuel-val" class="lcd-value-small">100%</span>
+                        </div>
+                    </div>
+
+                    <div class="control-panel">
+                        <div class="slider-group">
+                            <label><i class="fa-solid fa-gauge-high"></i> İTKİ GÜCÜ (THROTTLE)</label>
+                            <input type="range" id="throttle" min="0" max="100" value="100">
+                            <span id="throttle-val">100%</span>
+                        </div>
+
+                        <div class="config-group">
+                            <div class="input-mini">
+                                <label>YAKIT (Ton)</label>
+                                <input type="number" id="fuel-input" value="50" min="10" max="100">
+                            </div>
+                            <div class="input-mini">
+                                <label>YÜK (Ton)</label>
+                                <input type="number" id="payload-input" value="5" min="1" max="20">
+                            </div>
+                        </div>
+
+                        <button id="launch-btn" class="launch-button">
+                            <span class="btn-text">ATEŞLE</span>
+                            <i class="fa-solid fa-rocket"></i>
+                        </button>
+                    </div>
+
+                    <div class="telemetry-graph">
+                        <svg id="telemetry-svg" width="100%" height="100%" viewBox="0 0 300 100"
+                            preserveAspectRatio="none">
+                            <path id="alt-path" d="M0,100 L300,100" stroke="var(--primary-accent)" stroke-width="2"
+                                fill="none" />
+                            <path id="vel-path" d="M0,100 L300,100" stroke="var(--secondary-accent)" stroke-width="2"
+                                fill="none" />
+                        </svg>
+                        <div class="graph-labels">
+                            <span style="color: var(--primary-accent)">İrtifa</span>
+                            <span style="color: var(--secondary-accent)">Hız</span>
+                        </div>
+                    </div>
+
+                    <div class="status-panel">
+                        <span id="status">SİSTEM HAZIR</span>
+                    </div>
+                </div>
+
+                <div class="lab-visual">
+                    <div id="simulation-canvas">
+                        <!-- Rocket DOM element for simulation -->
+                        <div id="sim-rocket" class="sim-rocket">
+                            <div class="rocket-tip"></div>
+                            <div class="rocket-body">
+                                <div class="rocket-window"></div>
+                                <div class="rocket-stripe"></div>
+                            </div>
+                            <div class="rocket-fin rocket-fin-left"></div>
+                            <div class="rocket-fin rocket-fin-right"></div>
+                            <div class="rocket-flames">
+                                <div class="flame flame-1"></div>
+                                <div class="flame flame-2"></div>
+                                <div class="flame flame-3"></div>
+                            </div>
+                        </div>
+                        <div class="ground"></div>
+                        <div class="clouds"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <!-- Engineering Design Cycle Section -->
+        <section id="tasarim" class="section">
+            <h2 class="section-title">Mühendislik Tasarım Döngüsü <span class="badge"
+                    style="color: var(--secondary-accent); border-color: var(--secondary-accent);">Süreç</span></h2>
+            <p class="section-desc">Bir roket nasıl tasarlanır? Adım adım mühendislik süreci.</p>
+
+            <div class="design-cycle-container glass-card">
+                <div class="cycle-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Görev Tanımı</div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Delta-V Bütçesi</div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Faydalı Yük</div>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-title">İtki Seçimi</div>
+                    </div>
+                    <div class="step" data-step="5">
+                        <div class="step-number">5</div>
+                        <div class="step-title">Yapısal Tasarım</div>
+                    </div>
+                    <div class="step" data-step="6">
+                        <div class="step-number">6</div>
+                        <div class="step-title">Stabilite</div>
+                    </div>
+                </div>
+
+                <div class="cycle-content">
+                    <div class="step-content active" id="content-1">
+                        <h3><i class="fa-solid fa-flag-checkered"></i> Nereye Gidiyoruz?</h3>
+                        <p>Her şey bir hedefle başlar. Yörünge altı mı? LEO (Alçak Dünya Yörüngesi) mi? Yoksa Mars mı?
+                            Hedef, tüm tasarımı belirler.</p>
+                        <div class="step-tip">
+                            <i class="fa-solid fa-lightbulb"></i> İpucu: LEO için yaklaşık 9.4 km/s Delta-V gerekir.
+                        </div>
+                    </div>
+                    <div class="step-content" id="content-2">
+                        <h3><i class="fa-solid fa-gas-pump"></i> Enerji İhtiyacı</h3>
+                        <p>Roketin ulaşması gereken hız değişimi. Yerçekimi kayıpları ve atmosferik sürtünme dahil
+                            edilmelidir.</p>
+                        <div class="step-tip">
+                            <i class="fa-solid fa-calculator"></i> Aşağıdaki Delta-V hesaplayıcıyı kullanın.
+                        </div>
+                    </div>
+                    <div class="step-content" id="content-3">
+                        <h3><i class="fa-solid fa-box-open"></i> Ne Taşıyoruz?</h3>
+                        <p>Uydu, insan veya bilimsel ekipman. Yükün kütlesi ve boyutları, roketin çapını ve motor gücünü
+                            belirler.</p>
+                    </div>
+                    <div class="step-content" id="content-4">
+                        <h3><i class="fa-solid fa-fire-burner"></i> Motor Seçimi</h3>
+                        <p>Katı yakıt (basit, güçlü) mı? Sıvı yakıt (kontrol edilebilir, verimli) mı? Isp ve TWR
+                            değerleri kritik.</p>
+                    </div>
+                    <div class="step-content" id="content-5">
+                        <h3><i class="fa-solid fa-layer-group"></i> Staging (Kademelendirme)</h3>
+                        <p>Tek parça roketle yörüngeye çıkmak zordur. Yakıtı biten tankları atmak (staging) roketin
+                            hafiflemesini sağlar.</p>
+                    </div>
+                    <div class="step-content" id="content-6">
+                        <h3><i class="fa-solid fa-scale-balanced"></i> Uçacak mı?</h3>
+                        <p>Ağırlık Merkezi (CG) Basınç Merkezi'nin (CP) önünde olmalıdır. Yoksa roket takla atar.</p>
+                        <div class="step-tip">
+                            <i class="fa-solid fa-link"></i> OpenRocket bu analiz için mükemmeldir.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <h2 class="section-title">Pro Araçlar <span class="badge">Canlı Veri</span></h2>
+        <p class="section-desc">Gerçek zamanlı veriler ve ileri seviye simülasyonlar.</p>
+
+        <div class="tools-grid">
+            <!-- SpaceX Tracker -->
+            <div class="tool-card glass-card spacex-card">
+                <div class="tool-header">
+                    <i class="fa-solid fa-shuttle-space"></i>
+                    <h3>SpaceX Sonraki Fırlatma</h3>
+                </div>
+                <div id="spacex-data" class="tool-content">
+                    <div class="mission-name" id="mission-name">Yükleniyor...</div>
+                    <div class="countdown" id="countdown">00:00:00:00</div>
+                    <div class="launch-details">
+                        <span id="rocket-name">-</span> • <span id="launch-site">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orbit Visualizer -->
+            <div class="tool-card glass-card orbit-card">
+                <div class="tool-header">
+                    <i class="fa-solid fa-globe"></i>
+                    <h3>Yörünge Görselleştirici</h3>
+                </div>
+                <div class="tool-content">
+                    <canvas id="orbit-canvas" width="300" height="300"></canvas>
+                    <div class="orbit-controls">
+                        <input type="range" id="orbit-speed" min="0" max="12000" value="7000" step="100">
+                        <div class="speed-label">Hız: <span id="orbit-speed-val">7000</span> m/s</div>
+                        <div class="orbit-status" id="orbit-status">Yörünge Altı</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atmosphere Calculator -->
+            <div class="tool-card glass-card atmo-card">
+                <div class="tool-header">
+                    <i class="fa-solid fa-wind"></i>
+                    <h3>Atmosfer Yoğunluğu</h3>
+                </div>
+                <div class="tool-content">
+                    <div class="atmo-visual">
+                        <div class="atmo-bar" id="atmo-bar"></div>
+                        <div class="rocket-icon" id="atmo-rocket"><i class="fa-solid fa-rocket"></i></div>
+                    </div>
+                    <div class="atmo-controls">
+                        <label>İrtifa: <span id="atmo-alt-val">0</span> km</label>
+                        <input type="range" id="atmo-alt" min="0" max="100" value="0">
+                        <div class="atmo-result">
+                            <div>Yoğunluk: <span id="atmo-density">1.225</span> kg/m³</div>
+                            <div>Basınç: <span id="atmo-pressure">101325</span> Pa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delta-V Calculator -->
+            <div class="tool-card glass-card deltav-card">
+                <div class="tool-header">
+                    <i class="fa-solid fa-calculator"></i>
+                    <h3>Delta-V Hesaplayıcı</h3>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label>Isp (s)</label>
+                        <input type="number" id="dv-isp" placeholder="Örn: 300" value="300">
+                    </div>
+                    <div class="input-group">
+                        <label>Başlangıç Kütlesi (kg)</label>
+                        <input type="number" id="dv-wet" placeholder="Örn: 1000" value="1000">
+                    </div>
+                    <div class="input-group">
+                        <label>Bitiş Kütlesi (kg)</label>
+                        <input type="number" id="dv-dry" placeholder="Örn: 100" value="100">
+                    </div>
+                    <div class="calc-result">
+                        <span id="dv-result">0</span> m/s
+                    </div>
+                    <p class="calc-desc">Tsiolkovsky Roket Denklemi</p>
+                </div>
+            </div>
+
+            <!-- TWR Analyzer -->
+            <div class="tool-card glass-card twr-card">
+                <div class="tool-header">
+                    <i class="fa-solid fa-weight-hanging"></i>
+                    <h3>TWR Analizörü</h3>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label>İtki (Thrust - N)</label>
+                        <input type="number" id="twr-thrust" placeholder="Örn: 15000" value="15000">
+                    </div>
+                    <div class="input-group">
+                        <label>Kütle (Mass - kg)</label>
+                        <input type="number" id="twr-mass" placeholder="Örn: 1000" value="1000">
+                    </div>
+                    <div class="twr-visual" id="twr-visual">
+                        <div class="twr-indicator" id="twr-indicator"></div>
+                    </div>
+                    <div class="calc-result">
+                        TWR: <span id="twr-result">1.53</span>
+                    </div>
+                    <p class="calc-desc" id="twr-status" style="color: #00ff88;">Uçuşa Uygun</p>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- Rocketry Glossary Section -->
+        <section id="sozluk" class="section">
+            <h2 class="section-title">Hap Bilgiler <span class="badge"
+                    style="color: var(--primary-accent); border-color: var(--primary-accent);">Sözlük</span></h2>
+            <p class="section-desc">Roket biliminin yabancı dilini konuşmaya başlayın.</p>
+
+            <div class="grid-container">
+                <!-- Delta-V -->
+                <div class="card glass-card glossary-card">
+                    <div class="card-icon"><i class="fa-solid fa-gas-pump"></i></div>
+                    <h3>Delta-V ($\Delta v$)</h3>
+                    <div class="glossary-def">
+                        <p><strong>Nedir?</strong> Roketin hızını ne kadar değiştirebileceğinin ölçüsü. Enerji bütçeniz.
+                        </p>
+                        <p class="glossary-example">Örn: LEO'ya çıkmak için ~9.4 km/s, Mars'a gitmek için ~13 km/s
+                            gerekir.</p>
+                    </div>
+                </div>
+
+                <!-- Isp -->
+                <div class="card glass-card glossary-card">
+                    <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <h3>Isp (Özgül İtki)</h3>
+                    <div class="glossary-def">
+                        <p><strong>Nedir?</strong> Roket motorunun yakıt verimliliği. Arabalardaki "100km'de yakan
+                            litre" gibi.</p>
+                        <p class="glossary-example">Örn: Merlin motoru ~300s (saniye), İyon motoru ~3000s Isp değerine
+                            sahiptir.</p>
+                    </div>
+                </div>
+
+                <!-- TWR -->
+                <div class="card glass-card glossary-card">
+                    <div class="card-icon"><i class="fa-solid fa-weight-hanging"></i></div>
+                    <h3>TWR (İtki/Ağırlık)</h3>
+                    <div class="glossary-def">
+                        <p><strong>Nedir?</strong> Roketin motor gücünün ağırlığına oranı. 1'den büyükse uçar, küçükse
+                            yerde kalır.</p>
+                        <p class="glossary-example">Örn: Kalkışta en az 1.2 olması istenir. Çok yüksekse (örn: 5)
+                            astronotlar bayılır.</p>
+                    </div>
+                </div>
+
+                <!-- Max Q -->
+                <div class="card glass-card glossary-card">
+                    <div class="card-icon"><i class="fa-solid fa-wind"></i></div>
+                    <h3>Max Q</h3>
+                    <div class="glossary-def">
+                        <p><strong>Nedir?</strong> Maksimum Dinamik Basınç. Roketin atmosferde en çok zorlandığı an.</p>
+                        <p class="glossary-example">Bu noktada roketler genellikle motorlarını kısar (throttle down) ki
+                            parçalanmasınlar.</p>
+                    </div>
+                </div>
+
+                <!-- Apogee / Perigee -->
+                <div class="card glass-card glossary-card">
+                    <div class="card-icon"><i class="fa-solid fa-arrows-up-down"></i></div>
+                    <h3>Apogee & Perigee</h3>
+                    <div class="glossary-def">
+                        <p><strong>Nedir?</strong> Yörüngenin en yüksek (Apogee) ve en alçak (Perigee) noktaları.</p>
+                        <p class="glossary-example">Dairesel yörüngede bu iki nokta eşittir.</p>
+                    </div>
+                </div>
+
+                <!-- Staging -->
+                <div class="card glass-card glossary-card">
+                    <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Staging</h3>
+                    <div class="glossary-def">
+                        <p><strong>Nedir?</strong> Yakıtı biten tankları ve motorları atarak hafiflemek.</p>
+                        <p class="glossary-example">Roket denkleminin en büyük hilesidir. Tek aşamalı yörüngeye çıkmak
+                            (SSTO) çok zordur.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Web Resources -->
+        <section id="web" class="section">
+            <h2 class="section-title">Dijital Kütüphaneler</h2>
+
+            <div class="list-layout">
+                <a href="https://ntrs.nasa.gov/" target="_blank" class="list-item glass-card">
+                    <div class="list-content">
+                        <h3>NASA Technical Reports Server (NTRS)</h3>
+                        <p>NASA'nın 1900'lerden bugüne tüm teknik rapor arşivi. F-1 motor enjektör tasarımına kadar
+                            her
+                            şey burada.</p>
+                    </div>
+                    <div class="list-action"><i class="fa-solid fa-external-link-alt"></i></div>
+                </a>
+
+                <a href="http://www.projectrho.com/public_html/rocket/" target="_blank" class="list-item glass-card">
+                    <div class="list-content">
+                        <h3>Atomic Rockets (Project Rho)</h3>
+                        <p>Tasarımı eski ama içeriği altın değerinde. Motor tipleri ve uzay matematiği için derin
+                            bilgi
+                            deposu.</p>
+                    </div>
+                    <div class="list-action"><i class="fa-solid fa-external-link-alt"></i></div>
+                </a>
+
+                <a href="http://www.braeunig.us/space/" target="_blank" class="list-item glass-card">
+                    <div class="list-content">
+                        <h3>Braeunig.us</h3>
+                        <p>Roket itki teorisini formüllerle en net anlatan kaynaklardan biri.</p>
+                    </div>
+                    <div class="list-action"><i class="fa-solid fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/guide-to-rockets/" target="_blank"
+                    class="list-item glass-card">
+                    <div class="list-content">
+                        <h3>NASA Beginner's Guide to Rockets</h3>
+                        <p>NASA'nın hazırladığı, roket fiziğini simülasyonlarla anlatan harika bir başlangıç rehberi.
+                        </p>
+                    </div>
+                    <div class="list-action"><i class="fa-solid fa-external-link-alt"></i></div>
+                </a>
+
+                <a href="https://tablesix.github.io/jebediahsnotebook/guides/basic-rockets.html" target="_blank"
+                    class="list-item glass-card">
+                    <div class="list-content">
+                        <h3>Jebediah's Notebook</h3>
+                        <p>Kerbal Space Program üzerinden roket tasarımını anlatan, pratik ve eğlenceli bir not defteri.
+                        </p>
+                    </div>
+                    <div class="list-action"><i class="fa-solid fa-external-link-alt"></i></div>
+                </a>
+
+                <a href="https://yesitsrocketscience.github.io/designProcess.html" target="_blank"
+                    class="list-item glass-card">
+                    <div class="list-content">
+                        <h3>Rocket Design Process</h3>
+                        <p>Bir roketin tasarım sürecini adım adım anlatan kapsamlı bir akış şeması.</p>
+                    </div>
+                    <div class="list-action"><i class="fa-solid fa-external-link-alt"></i></div>
+                </a>
+            </div>
+        </section>
+        <section id="youtube" class="section">
+            <h2 class="section-title">Görsel Öğrenme</h2>
+
+            <div class="grid-container three-col">
+                <a href="https://www.youtube.com/@EverydayAstronaut" target="_blank" class="card glass-card video-card">
+                    <div class="card-img youtube-bg-1">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <h3>Everyday Astronaut</h3>
+                    <p>"Rocket Engine Cycles" serisi mühendisliği harika anlatır.</p>
+                </a>
+
+                <a href="https://www.youtube.com/@scottmanley" target="_blank" class="card glass-card video-card">
+                    <div class="card-img youtube-bg-2">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <h3>Scott Manley</h3>
+                    <p>Yörünge mekaniği ve roket tarihi otoritesi.</p>
+                </a>
+
+                <a href="https://www.youtube.com/@CopenhagenSuborbitals" target="_blank"
+                    class="card glass-card video-card">
+                    <div class="card-img youtube-bg-3">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <h3>Copenhagen Suborbitals</h3>
+                    <p>Dünyanın tek amatör insanlı uzay programı. Garajda roket yapımı.</p>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Açık Kaynak Roket Projesi. <a href="https://x.com/TufanKoc00" target="_blank">Tufan Koç</a>
+                tarafından tasarlandı.</p>
+            <div class="social-links">
+                <a href="https://x.com/TufanKoc00" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://github.com/tufankoc/acik-kaynak-roket" target="_blank"><i
+                        class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
