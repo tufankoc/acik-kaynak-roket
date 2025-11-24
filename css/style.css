@@ -198,6 +198,20 @@ a {
     transition: transform 0.3s;
 }
 
+.rocket-tip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid var(--danger-accent);
+    z-index: 3;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 85, 0.3));
+}
+
 .rocket-body {
     width: 60px;
     height: 150px;
