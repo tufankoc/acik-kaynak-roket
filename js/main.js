@@ -517,8 +517,8 @@ window.onYouTubeIframeAPIReady = function () {
         width: '0',
         videoId: 'WHqbqzqeskw',
         playerVars: {
-            'autoplay': 1, // Auto-play enabled
-            'mute': 1, // Start muted to bypass browser restrictions
+            'autoplay': 1,
+            'mute': 1, // Start muted due to browser restrictions
             'controls': 0,
             'loop': 1,
             'playlist': 'WHqbqzqeskw',
@@ -531,17 +531,39 @@ window.onYouTubeIframeAPIReady = function () {
     });
 }
 
+let hasUnmuted = false;
+
 function onPlayerReady(event) {
-    // Auto-play muted
     event.target.setVolume(15);
-    console.log('YouTube player ready - playing muted');
+    console.log('YouTube player ready - will unmute on first interaction');
+
+    // Auto-unmute on first user interaction
+    const unmuteOnInteraction = () => {
+        if (!hasUnmuted && player && player.unMute) {
+            player.unMute();
+            player.setVolume(15);
+            hasUnmuted = true;
+            console.log('Music unmuted automatically');
+
+            // Update icon
+            if (musicIcon) {
+                musicIcon.className = 'fa-solid fa-volume-high';
+                musicBtn.classList.add('playing');
+            }
+        }
+    };
+
+    // Listen for various user interactions
+    document.addEventListener('mousemove', unmuteOnInteraction, { once: true });
+    document.addEventListener('scroll', unmuteOnInteraction, { once: true });
+    document.addEventListener('click', unmuteOnInteraction, { once: true });
+    document.addEventListener('touchstart', unmuteOnInteraction, { once: true });
 }
 
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         isMusicPlaying = true;
         if (musicIcon) {
-            // Show correct icon based on mute status
             if (player && player.isMuted && player.isMuted()) {
                 musicIcon.className = 'fa-solid fa-volume-xmark';
                 musicBtn.classList.remove('playing');
@@ -571,6 +593,7 @@ if (musicBtn) {
         if (player.isMuted()) {
             player.unMute();
             player.setVolume(15);
+            hasUnmuted = true;
             musicIcon.className = 'fa-solid fa-volume-high';
             musicBtn.classList.add('playing');
         } else {
