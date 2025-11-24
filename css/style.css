@@ -277,15 +277,6 @@ a {
     filter: blur(4px);
 }
 
-height: 80px;
-background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), var(--primary-accent), var(--secondary-accent), transparent);
-border-radius: 0 0 20px 20px;
-animation: exhaust 0.1s infinite alternate;
-opacity: 0.9;
-filter: blur(5px);
-z-index: 0;
-}
-
 @keyframes float {
 
     0%,
