@@ -510,6 +510,26 @@ a {
     color: var(--primary-accent);
 }
 
+/* Twitter Share Button */
+.share-btn {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+    border-radius: 8px;
+    color: white !important;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 242, 255, 0.4);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
