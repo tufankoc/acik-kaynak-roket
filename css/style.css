@@ -173,15 +173,23 @@ a {
     box-shadow: 0 15px 40px rgba(112, 0, 255, 0.5);
 }
 
-/* Rocket Animation */
+/* Rocket Image */
 .hero-visual {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
-    filter: drop-shadow(0 0 30px rgba(0, 242, 255, 0.2));
+}
+
+.hero-rocket-img {
+    width: 100%;
+    height: auto;
+    max-width: 350px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 40px rgba(0, 242, 255, 0.3));
+    animation: float 4s ease-in-out infinite;
 }
 
 .rocket-container {
@@ -531,6 +539,11 @@ a {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
+    }
+
+    /* Hide rocket image on mobile */
+    .hero-visual {
+        display: none;
     }
 }
 
