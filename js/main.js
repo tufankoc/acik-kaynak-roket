@@ -517,7 +517,8 @@ window.onYouTubeIframeAPIReady = function () {
         width: '0',
         videoId: 'WHqbqzqeskw',
         playerVars: {
-            'autoplay': 0, // Don't autoplay due to browser restrictions
+            'autoplay': 1, // Auto-play enabled
+            'mute': 1, // Start muted to bypass browser restrictions
             'controls': 0,
             'loop': 1,
             'playlist': 'WHqbqzqeskw',
@@ -531,17 +532,23 @@ window.onYouTubeIframeAPIReady = function () {
 }
 
 function onPlayerReady(event) {
-    // Don't auto-play due to browser restrictions
-    // User must click the button
-    console.log('YouTube player ready');
+    // Auto-play muted
+    event.target.setVolume(15);
+    console.log('YouTube player ready - playing muted');
 }
 
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         isMusicPlaying = true;
         if (musicIcon) {
-            musicIcon.className = 'fa-solid fa-volume-high';
-            musicBtn.classList.add('playing');
+            // Show correct icon based on mute status
+            if (player && player.isMuted && player.isMuted()) {
+                musicIcon.className = 'fa-solid fa-volume-xmark';
+                musicBtn.classList.remove('playing');
+            } else {
+                musicIcon.className = 'fa-solid fa-volume-high';
+                musicBtn.classList.add('playing');
+            }
         }
     } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
         isMusicPlaying = false;
@@ -560,11 +567,16 @@ if (musicBtn) {
             return;
         }
 
-        if (isMusicPlaying) {
-            player.pauseVideo();
+        // Toggle mute/unmute
+        if (player.isMuted()) {
+            player.unMute();
+            player.setVolume(15);
+            musicIcon.className = 'fa-solid fa-volume-high';
+            musicBtn.classList.add('playing');
         } else {
-            player.setVolume(15); // Set volume to 15%
-            player.playVideo();
+            player.mute();
+            musicIcon.className = 'fa-solid fa-volume-xmark';
+            musicBtn.classList.remove('playing');
         }
     });
 }
